@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-blue: hsl(165, 71%, 63%);
+    --neon-green: #97f7b3;
+  }
+
+  body {
+    @apply bg-black text-gray-100;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-md transition-colors;
+  }
+
+  .nav-link.active {
+    @apply text-white bg-gray-800;
+  }
+
+  .neon-border {
+    box-shadow: 0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-green);
+  }
+
+  .hover-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300 
+           transform hover:scale-105 hover:shadow-2xl;
+  }
+
+  .hover-card img {
+    @apply transition-all duration-300;
+  }
+
+  .hover-card:hover img {
+    @apply grayscale;
+  }
+
+  .hover-card .overlay {
+    @apply absolute inset-0 bg-black bg-opacity-70 opacity-0 
+           transition-opacity duration-300 flex items-center justify-center;
+  }
+
+  .hover-card:hover .overlay {
+    @apply opacity-100;
+  }
+}
